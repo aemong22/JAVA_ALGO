@@ -1,0 +1,11 @@
+package first;
+
+// 단어의 개수
+public class B_1152 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
