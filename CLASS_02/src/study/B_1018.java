@@ -1,6 +1,5 @@
 package study;
 
-// 체스판 포기
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
