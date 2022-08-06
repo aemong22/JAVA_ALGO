@@ -17,7 +17,7 @@ public class B_1966 {
 		for(int i =0 ;i < t; i++) {
 			st = new StringTokenizer(in.readLine());
 			int file = Integer.parseInt(st.nextToken());
-			int target = Integer.parseInt(st.nextToken())-1;
+			int target = Integer.parseInt(st.nextToken());
 			st = new StringTokenizer(in.readLine());
 			Deque<Integer> deque = new LinkedList<>();
 			for(int idx = 0; idx < file ; idx++) {
@@ -27,8 +27,8 @@ public class B_1966 {
 			int count = 0;
 			while(deque.size()>0) {
 				int Max = Collections.max(deque);
-				count++;
 				if (Max == deque.getFirst()) {
+					count++;
 					if (target == 0) {
 						break;
 					}
@@ -40,7 +40,7 @@ public class B_1966 {
 				}
 				target--;
 				if(target<0) {
-					target = deque.size();
+					target = deque.size()-1;
 				}
 			}
 			
