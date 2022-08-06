@@ -11,6 +11,7 @@ public class B_2108 {
 		StringBuilder sb = new StringBuilder();
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(in.readLine());
+		
 
 	}
 
