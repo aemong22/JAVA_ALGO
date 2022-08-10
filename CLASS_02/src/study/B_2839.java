@@ -12,30 +12,39 @@ public class B_2839 {
 		StringTokenizer st = new StringTokenizer(in.readLine());
 		
 		int n = Integer.parseInt(st.nextToken());
-		int a1 = n / 5;
-		int x = n % 5;
-		int b1 = x / 3;
-		int c1 = x % 3;
-		
-		int a2 = n / 3;
-		int x2 = n % 3;
-		int b2 = x2 / 5;
-		int c2 = x2 % 5;
-		
-		if(c1 == 0 || c2 == 0) {
-			if(c1 == 0 && c2 == 0) {
-				int result = a1 + b1 > a2 + b2 ? a2+b2 : a1+b1;
-				System.out.println(result);
+		int x = n / 5;
+		int y = n % 5;
+		int count = x;
+		while(true) {
+			if(y == 0) {
+				
+				break;
 			}
 			else {
-				int result = c1 == 0 ? a1+b1 : a2+ b2;
-				System.out.println(result);
+				if(x >= 1) {
+					if(y % 3 == 0) {
+						count = x +  y / 3;
+						break;
+					}
+					x = x - 1;
+					int a = (5 + y) / 3;
+					count += a-1 ;
+					y = (y+5)  %  3;
+				}
+				else {
+					if(n % 3 != 0) {
+						count = -1;
+						break;
+					}
+					else {
+						count = n / 3;
+						break;
+					}
+				}
 			}
 		}
-		else {
-			System.out.println(-1);
-		}
 		
+		System.out.println(count);
 
 	}
 }
