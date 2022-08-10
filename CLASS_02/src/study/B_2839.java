@@ -12,22 +12,39 @@ public class B_2839 {
 		StringTokenizer st = new StringTokenizer(in.readLine());
 		
 		int n = Integer.parseInt(st.nextToken());
-		int a = n / 5;
-		int x = n % 5;
-		int b = x / 3;
-		
-		if( x % 3 == 0) {
-			System.out.println(a+b);
-		}
-		else {
-			if(n % 3 == 0) {
-				System.out.println(n /3);
+		int x = n / 5;
+		int y = n % 5;
+		int count = x;
+		while(true) {
+			if(y == 0) {
+				
+				break;
 			}
 			else {
-			System.out.println(-1);
+				if(x >= 1) {
+					if(y % 3 == 0) {
+						count = x +  y / 3;
+						break;
+					}
+					x = x - 1;
+					int a = (5 + y) / 3;
+					count += a-1 ;
+					y = (y+5)  %  3;
+				}
+				else {
+					if(n % 3 != 0) {
+						count = -1;
+						break;
+					}
+					else {
+						count = n / 3;
+						break;
+					}
+				}
 			}
 		}
 		
+		System.out.println(count);
 
 	}
 }
