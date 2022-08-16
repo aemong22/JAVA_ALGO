@@ -2,6 +2,7 @@ package study;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 import java.util.stream.IntStream;
 
@@ -22,22 +23,23 @@ public class B_1654 {
 		}
 		
 		// 랜선 최대 길이
-		int Max = IntStream.of(num).sum()/n;
+		long Max = Arrays.stream(num).max().getAsInt();
+		long Min = 1;
 		
 		//만든 랜선 갯수
-		int count = 0;
 
-		while(true) {
+		while(Min <= Max) {
+			int count = 0;
+			long mid = (Max+Min)/2;
 			for(int i : num) {
-				count += i/Max;
+				count += i/mid;
 			}
 			
-			if(count >= n) {
-				break;
+			if(count >=  n) {
+				Min = mid+1;
 			}
-			else {
-				Max--;
-				count = 0;
+			else { 
+				Max = mid-1;
 			}
 		}
 		
