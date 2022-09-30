@@ -17,29 +17,44 @@ public class B_7662 {
 
 		for(int tc = 0; tc < t ;tc++) {
 			int k = Integer.parseInt(in.readLine());
-			List<Integer> prior = new ArrayList<>();
+			// 낮은 숫자 순
+			PriorityQueue<Integer> p1 = new PriorityQueue<>();
+
+			// 높은 숫자 순
+			PriorityQueue<Integer> p2 = new PriorityQueue<>(Collections.reverseOrder());
+
+			int size = 0;
+
 			for(int i = 0; i < k ; i++) {
 				st = new StringTokenizer(in.readLine());
 				if(st.nextToken().equals("I")) {
 					int temp = Integer.parseInt(st.nextToken());
-					prior.add(temp);
+					p1.add(temp);
+					p2.add(temp);
+					size++;
 				}
 				else {
-					Collections.sort(prior);
 					if(st.nextToken().equals("-1")) {
-						if(!prior.isEmpty())prior.remove(0);
+						if(size > 0) {
+							p1.poll();
+							size--;
+						}
 					}
 					else {
-						if(!prior.isEmpty())prior.remove(prior.size()-1);
+						if(size > 0) {
+							p2.poll();
+							size--;
+						}
+
 					}
 				}
 			}
-			if(prior.isEmpty()) {
+			if(size == 0) {
 				sb.append("EMPTY\n");
 			}
 			else {
-				sb.append(prior.get(prior.size()-1)).append(" ").append(prior.get(0));
-			}
+				sb.append(p2.poll() +" " +p1.poll()+"\n");
+ 			}
 		}
 		System.out.println(sb);
 
